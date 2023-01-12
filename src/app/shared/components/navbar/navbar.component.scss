@@ -1,0 +1,14 @@
+@import "../../scss/variables";
+
+nav {
+  &#default {
+    width: 80px;
+    max-width: 100px;
+    height: calc(100vh - 40px);
+    padding: 20px;
+    background-color: $nav-background;
+
+    display: flex;
+    justify-content: center;
+  }
+}
