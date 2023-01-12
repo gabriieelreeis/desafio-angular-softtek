@@ -14,13 +14,10 @@ import { HeaderComponent } from './shared/components/header/header.component';
     FooterComponent,
     NavbarComponent,
     BreadcrumbComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
