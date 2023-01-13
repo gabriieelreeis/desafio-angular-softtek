@@ -1,0 +1,13 @@
+<footer id="admission">
+  <button
+    class="button"
+    [ngClass]="{
+      default: button.style == 'default',
+      bordered: button.style == 'bordered'
+    }"
+    *ngFor="let button of buttons"
+    (click)="button?.action()"
+  >
+    {{ button.title }}
+  </button>
+</footer>

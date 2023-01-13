@@ -1,0 +1,51 @@
+#breadcrumb {
+  width: 50%;
+  max-width: 80%;
+  margin: 20px auto;
+
+  .breadcrumb {
+    &-line {
+      width: 95%;
+      height: 2px;
+      background-color: #c6ced1;
+
+      margin: 20px auto;
+    }
+    &-values {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 40px;
+
+      .value {
+        font-family: "Open Sans";
+        font-weight: 400;
+        font-size: 14px;
+        color: #889499;
+
+        position: relative;
+
+        &.active {
+          color: #165c7d;
+          &:before {
+            border: 2px solid #165c7d;
+          }
+        }
+
+        &:before {
+          content: "";
+          width: 15px;
+          height: 15px;
+          border-radius: 100%;
+          background-color: #c6ced1;
+          box-sizing: border-box;
+
+          position: absolute;
+
+          left: calc(50% - 7.5px);
+          top: -29px;
+        }
+      }
+    }
+  }
+}

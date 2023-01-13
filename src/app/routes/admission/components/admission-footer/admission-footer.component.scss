@@ -1,0 +1,41 @@
+footer {
+  &#admission {
+    background-color: #fff;
+
+    width: calc(100% + 28px);
+    max-height: 78px;
+    padding: 10px;
+
+    transform: translate(-24px, 24px);
+
+    display: flex;
+    align-items: center;
+
+    .button {
+      display: flex;
+      align-items: center;
+      padding: 8px 25px;
+
+      margin-right: 10px;
+
+      font-family: "Open Sans";
+      font-weight: 600;
+      font-size: 14px;
+
+      &.default {
+        border: none;
+        background-color: #165c7d;
+        color: #fff;
+      }
+
+      &.bordered {
+        border: 1px solid #165c7d;
+        box-sizing: border-box;
+        background-color: #fff;
+        color: #165c7d;
+      }
+
+      height: 48px;
+    }
+  }
+}

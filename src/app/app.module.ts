@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
-import { BreadcrumbComponent } from './shared/components/breadcrumb/breadcrumb.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule, Routes } from '@angular/router';
@@ -25,13 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FooterComponent,
-    NavbarComponent,
-    BreadcrumbComponent,
-    HeaderComponent,
-  ],
+  declarations: [AppComponent, NavbarComponent, HeaderComponent],
   imports: [BrowserModule, FontAwesomeModule, RouterModule.forRoot(routes)],
   providers: [provideEnvironmentNgxMask()],
   bootstrap: [AppComponent],
