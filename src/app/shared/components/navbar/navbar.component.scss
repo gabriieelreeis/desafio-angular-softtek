@@ -8,7 +8,31 @@ nav {
     padding: 20px;
     background-color: $nav-background;
 
-    display: flex;
-    justify-content: center;
+    #logo {
+      margin-bottom: 36px;
+    }
+
+    .navigation {
+      ul {
+        list-style: none;
+        li {
+          text-align: center;
+          margin-bottom: 30px;
+
+          a {
+            font-size: 1.7rem;
+            color: $nav-color;
+
+            &:hover {
+              color: $nav-secondary-color;
+            }
+
+            &.inactive {
+              color: $nav-secondary-color;
+            }
+          }
+        }
+      }
+    }
   }
 }

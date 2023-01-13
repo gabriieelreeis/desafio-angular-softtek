@@ -1,0 +1,120 @@
+<div id="breadcrumb">
+  <div class="breadcrumb-line"></div>
+  <div class="breadcrumb-values">
+    <div class="value active">Inicio</div>
+    <div class="value">Documentos</div>
+    <div class="value">Dados cadastrais</div>
+    <div class="value">Admissão</div>
+  </div>
+</div>
+<div id="admission-check">
+  <div class="infos">
+    <h1>Informe o CPF do futuro cooperado (a)</h1>
+    <p>
+      Se necessário, você poderá duplicar uma conta existente ou pausar e
+      retomar este cadastro futuramente.
+    </p>
+    <p>Digite apenas os números (sem pontos ou traços).</p>
+  </div>
+
+  <form (ngSubmit)="proceed()" class="form" [formGroup]="formGroup">
+    <div class="input">
+      <label for="cpf">CPF</label>
+      <input
+        type="text"
+        formControlName="cpf"
+        mask="000.000.000-00"
+        placeholder="000.000.000-00"
+        id="cpf"
+        name="cpf"
+        [readOnly]="!buttonActivated"
+      />
+      <!--
+        Span com condicional responsável por verificar a validade do CPF e exibição do alerta
+      -->
+      <span
+        *ngIf="
+          cpf!.invalid && (cpf!.dirty || cpf!.touched) && formGroup.touched
+        "
+      >
+        Informe um CPF válido
+      </span>
+    </div>
+
+    <!--
+      Botão condicional com exibição de texto ou imagem
+    -->
+    <button [disabled]="!buttonActivated" type="submit" class="button">
+      <ng-container *ngIf="!loading">Consultar por CPF</ng-container>
+      <ng-container *ngIf="!!loading"
+        ><img src="assets/images/spinner.svg" class="spinner"
+      /></ng-container>
+    </button>
+  </form>
+
+  <!--
+    Container condicional responsável por exibir o resultado caso seja inserido um CPF válido
+    Não vi necessidade de consumir um JSON ou até mesmo uma API pois os dados são estaticos,
+    mesmo informando um outro CPF iria exibir os mesmo resultados neste caso.
+  -->
+  <ng-container *ngIf="showResult">
+    <div id="result">
+      <div class="card">
+        <h1 class="card-title">Situação cadastral do CPF</h1>
+        <p class="card-description">Consulta na Receita Federal</p>
+        <div class="card-item">
+          <div class="icon gray">
+            <fa-icon [icon]="faUser"></fa-icon>
+          </div>
+          <div class="infos">
+            <p class="title">Nome</p>
+            <p class="value">Mariane de Sousa Oliveira</p>
+          </div>
+        </div>
+        <div class="card-item">
+          <div class="icon green">
+            <fa-icon [icon]="faCheckCircle"></fa-icon>
+          </div>
+          <div class="infos">
+            <p class="title">Situação do CPF</p>
+            <p class="value">Regular</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h1 class="card-title">Conta aplicação</h1>
+        <p class="card-description">Cooperativa Viacredi</p>
+        <div class="card-item">
+          <div class="icon gray">
+            <fa-icon [icon]="faCreditCard"></fa-icon>
+          </div>
+          <div class="infos">
+            <p class="title">Número da conta</p>
+            <p class="value">55798-8</p>
+          </div>
+        </div>
+        <div class="card-item">
+          <button class="button">Duplicar conta</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h1 class="card-title">Conta corrente</h1>
+        <p class="card-description">Cooperativa Viacredi</p>
+        <div class="card-item">
+          <div class="icon gray">
+            <fa-icon [icon]="faCreditCard"></fa-icon>
+          </div>
+          <div class="infos">
+            <p class="title">Número da conta</p>
+            <p class="value">778461-8</p>
+          </div>
+        </div>
+        <div class="card-item">
+          <button class="button">Duplicar conta</button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

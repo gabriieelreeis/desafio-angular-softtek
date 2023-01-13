@@ -1,0 +1,231 @@
+#breadcrumb {
+  width: 50%;
+  max-width: 80%;
+  margin: 20px auto;
+
+  .breadcrumb {
+    &-line {
+      width: 95%;
+      height: 2px;
+      background-color: #c6ced1;
+
+      margin: 20px auto;
+    }
+    &-values {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 40px;
+
+      .value {
+        font-family: "Open Sans";
+        font-weight: 400;
+        font-size: 14px;
+        color: #889499;
+
+        position: relative;
+
+        &.active {
+          color: #165c7d;
+          &:before {
+            border: 2px solid #165c7d;
+          }
+        }
+
+        &:before {
+          content: "";
+          width: 15px;
+          height: 15px;
+          border-radius: 100%;
+          background-color: #c6ced1;
+          box-sizing: border-box;
+
+          position: absolute;
+
+          left: calc(50% - 7.5px);
+          top: -29px;
+        }
+      }
+    }
+  }
+}
+
+#admission-check {
+  .infos {
+    h1,
+    p {
+      font-family: "Open Sans";
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+
+    h1 {
+      font-size: 22px;
+      color: #101213;
+    }
+    p {
+      font-size: 11px;
+      color: #4f575e;
+
+      &:last-child {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 20px;
+
+    .input {
+      font-family: "Open Sans";
+      font-weight: 400;
+      font-size: 14px;
+
+      display: flex;
+      flex-direction: column;
+
+      margin-right: 15px;
+
+      position: relative;
+
+      label {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      input {
+        font-family: "Open Sans";
+        width: 270px;
+        border: 1px solid #889499;
+        border-radius: 2px;
+        padding: 8px;
+
+        &.ng-invalid.ng-touched {
+          border: #c13018 1px solid;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      span {
+        font-family: "Open Sans";
+        font-weight: 400;
+        font-size: 10px;
+
+        color: #c13018;
+
+        margin-top: 5px;
+        position: absolute;
+        bottom: -15px;
+      }
+    }
+    .button {
+      display: flex;
+      align-items: center;
+      padding: 8px 25px;
+      border: none;
+      background-color: #165c7d;
+
+      font-family: "Open Sans";
+      font-weight: 600;
+      font-size: 14px;
+
+      color: #fff;
+
+      height: 36px;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+
+      .spinner {
+        height: 30px;
+      }
+    }
+  }
+
+  #result {
+    display: flex;
+
+    margin-top: 30px;
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      width: calc(270px - 20px);
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 2px;
+
+      margin-right: 25px;
+
+      &-title,
+      &-description {
+        font-family: "Open Sans";
+      }
+      &-title {
+        font-weight: 700;
+        font-size: 14px;
+        margin-bottom: 5px;
+        color: #040f14;
+      }
+      &-description {
+        font-weight: 400;
+        font-size: 11px;
+        color: #787878;
+      }
+      &-item {
+        display: flex;
+        align-items: center;
+
+        margin-top: 20px;
+
+        .icon {
+          font-size: 1.3rem;
+          margin-right: 15px;
+
+          &.gray {
+            color: #889499;
+          }
+
+          &.green {
+            color: #00c246;
+          }
+        }
+        .infos {
+          .title,
+          .value {
+            font-family: "Open Sans";
+            font-weight: 400;
+          }
+          .title {
+            font-size: 11px;
+            color: #787878;
+          }
+          .value {
+            font-size: 14px;
+            margin-bottom: 0;
+            color: #040f14;
+          }
+        }
+
+        .button {
+          background-color: transparent;
+          border: none;
+          margin-top: 5px;
+          padding: 0;
+          color: #165c7d;
+
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+@import "shared/scss/variables";
 #main {
   display: flex;
 
@@ -5,5 +6,16 @@
   }
 
   .right-side {
+    width: 100%;
+    background-color: $default-background;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .container {
+      flex: 1;
+      padding: 24px;
+    }
   }
 }

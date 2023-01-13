@@ -1,0 +1,94 @@
+@import "../../scss/variables";
+
+header {
+  &#default {
+    background-color: $header-background;
+    padding: 24px;
+
+    max-height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .left-side {
+      .title {
+        font-family: "Exo";
+        font-weight: 700;
+        font-size: 24px;
+        color: $header-title-color;
+        margin-bottom: 5px;
+      }
+    }
+
+    .right-side {
+      display: flex;
+      align-items: center;
+
+      .notifications {
+        position: relative;
+        margin-right: 15px;
+
+        fa-icon {
+          font-size: 1.8rem;
+          color: $header-color;
+        }
+
+        .counter {
+          position: absolute;
+          top: -5px;
+          right: -5px;
+
+          width: 15px;
+          height: 15px;
+
+          font-family: "Open Sans";
+          font-weight: 700;
+          font-size: 10px;
+          text-align: center;
+          line-height: 15px;
+
+          color: white;
+          background-color: red;
+          border-radius: 100%;
+        }
+      }
+      .place {
+        margin-right: 15px;
+
+        .default-button {
+          border-radius: 15px;
+          border: 1px solid $header-color;
+          background-color: #fff;
+
+          color: $header-color;
+
+          padding: 3px 12px;
+
+          font-family: "Open Sans";
+          font-weight: 700;
+          font-size: 16px;
+          text-transform: uppercase;
+        }
+      }
+      .profile {
+        position: relative;
+        cursor: pointer;
+
+        .avatar {
+          img {
+            border-radius: 100%;
+            border: 1px solid $header-color;
+          }
+        }
+
+        .icon {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          color: $header-color;
+        }
+      }
+    }
+  }
+}
