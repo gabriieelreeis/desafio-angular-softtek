@@ -13,6 +13,11 @@ import { AdmissionFooterButton } from '../components/admission-footer/admission-
 export class AdmissionCheckComponent {
   formGroup: FormGroup;
 
+  defaultFormGroup: FormGroup = new FormGroup({
+    // Validar campo obrigatório e válido
+    cpf: new FormControl('', [Validators.required, this.validateBrService.cpf]),
+  });
+
   loading: boolean = false;
 
   buttonActivated: boolean = true;
@@ -34,13 +39,7 @@ export class AdmissionCheckComponent {
 
   constructor(private validateBrService: ValidateBrService) {
     // Crio o meu form group com a construção do component
-    this.formGroup = new FormGroup({
-      // Validar campo obrigatório e válido
-      cpf: new FormControl('', [
-        Validators.required,
-        this.validateBrService.cpf,
-      ]),
-    });
+    this.formGroup = this.defaultFormGroup;
   }
 
   // Get no input de CPF
@@ -76,12 +75,7 @@ export class AdmissionCheckComponent {
     this.buttonActivated = true;
     this.showResult = false;
 
-    this.formGroup = new FormGroup({
-      cpf: new FormControl('', [
-        Validators.required,
-        this.validateBrService.cpf,
-      ]),
-    });
+    this.formGroup = this.defaultFormGroup;
 
     this.footerButtons = [this.defaultButton];
   }
