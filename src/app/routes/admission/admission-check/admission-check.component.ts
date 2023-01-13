@@ -25,9 +25,12 @@ export class AdmissionCheckComponent {
 
   showResult: boolean = false;
 
-  footerButtons: AdmissionFooterButton[] = [
-    { title: 'Dicas para abertura da conta', style: 'bordered' },
-  ];
+  defaultButton: AdmissionFooterButton = {
+    title: 'Dicas para abertura da conta',
+    style: 'bordered',
+  };
+
+  footerButtons: AdmissionFooterButton[] = [this.defaultButton];
 
   constructor(private validateBrService: ValidateBrService) {
     // Crio o meu form group com a construção do component
@@ -62,7 +65,7 @@ export class AdmissionCheckComponent {
           style: 'default',
           action: () => this.reset(),
         },
-        { title: 'Dicas para abertura da conta', style: 'bordered' },
+        this.defaultButton,
       ];
     }
 
@@ -80,8 +83,6 @@ export class AdmissionCheckComponent {
       ]),
     });
 
-    this.footerButtons = [
-      { title: 'Dicas para abertura da conta', style: 'bordered' },
-    ];
+    this.footerButtons = [this.defaultButton];
   }
 }
