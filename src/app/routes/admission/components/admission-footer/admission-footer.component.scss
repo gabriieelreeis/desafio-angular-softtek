@@ -1,6 +1,9 @@
+$blue: #165c7d;
+$white: #fff;
+
 footer {
   &#admission {
-    background-color: #fff;
+    background-color: $white;
 
     width: calc(100% + 28px);
     max-height: 78px;
@@ -24,15 +27,15 @@ footer {
 
       &.default {
         border: none;
-        background-color: #165c7d;
-        color: #fff;
+        background-color: $blue;
+        color: $white;
       }
 
       &.bordered {
-        border: 1px solid #165c7d;
+        border: 1px solid $blue;
         box-sizing: border-box;
-        background-color: #fff;
-        color: #165c7d;
+        background-color: $white;
+        color: $blue;
       }
 
       height: 48px;

@@ -1,3 +1,5 @@
+$blue: #165c7d;
+
 #breadcrumb {
   width: 50%;
   max-width: 80%;
@@ -26,9 +28,9 @@
         position: relative;
 
         &.active {
-          color: #165c7d;
+          color: $blue;
           &:before {
-            border: 2px solid #165c7d;
+            border: 2px solid $blue;
           }
         }
 
