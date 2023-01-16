@@ -7,6 +7,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule, Routes } from '@angular/router';
 import { provideEnvironmentNgxMask } from 'ngx-mask';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -24,7 +25,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, HeaderComponent],
-  imports: [BrowserModule, FontAwesomeModule, RouterModule.forRoot(routes)],
+  imports: [
+    BrowserModule,
+    FontAwesomeModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+  ],
   providers: [provideEnvironmentNgxMask()],
   bootstrap: [AppComponent],
   exports: [RouterModule],

@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Gabriel",
+      "last_name": "Reis Miranda",
+      "status": "regular",
+      "application_account": "55798-8",
+      "checking_account": "778461-8",
+      "cpf": 10690753616
+    },
+    {
+      "id": 2,
+      "name": "Xuxa",
+      "last_name": "Meneguel",
+      "status": "regular",
+      "application_account": "55798-8",
+      "checking_account": "778461-8",
+      "cpf": 92854577035
+    },
+    {
+      "id": 3,
+      "name": "Renato",
+      "last_name": "Aragão",
+      "status": "irregular",
+      "application_account": "55798-8",
+      "checking_account": "778461-8",
+      "cpf": 31176742094
+    }
+  ]
+}

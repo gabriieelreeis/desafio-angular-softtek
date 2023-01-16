@@ -187,3 +187,36 @@
     }
   }
 }
+
+@media screen and (max-width: 880px) {
+  #admission-check {
+    .search {
+      .form {
+        flex-wrap: wrap;
+
+        .input {
+          width: 100%;
+          input {
+            width: 100%;
+          }
+        }
+
+        .button {
+          width: 100%;
+          text-align: center;
+          display: block;
+          margin-top: 10px;
+        }
+      }
+
+      #result {
+        flex-wrap: wrap;
+        .card {
+          width: 100%;
+          margin-bottom: 20px;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

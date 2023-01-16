@@ -98,3 +98,22 @@ header {
     }
   }
 }
+
+@media screen and (max-width: 880px) {
+  header {
+    &#default {
+      flex-direction: column;
+      max-height: 400px;
+
+      .left-side {
+        .title {
+          text-align: center;
+        }
+      }
+
+      .right-side {
+        margin-top: 20px;
+      }
+    }
+  }
+}

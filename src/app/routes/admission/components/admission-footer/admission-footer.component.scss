@@ -42,3 +42,18 @@ footer {
     }
   }
 }
+
+@media screen and (max-width: 880px) {
+  footer {
+    &#admission {
+      flex-direction: column;
+      .button {
+        width: 100%;
+        display: block;
+        align-items: center;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

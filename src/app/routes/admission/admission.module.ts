@@ -7,6 +7,7 @@ import { NgxMaskDirective } from 'ngx-mask';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AdmissionFooterComponent } from './components/admission-footer/admission-footer.component';
 import { AdmissionBreadcrumbComponent } from './components/admission-breadcrumb/admission-breadcrumb.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -16,7 +17,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AdmissionCheckComponent, AdmissionFooterComponent, AdmissionBreadcrumbComponent],
+  declarations: [
+    AdmissionCheckComponent,
+    AdmissionFooterComponent,
+    AdmissionBreadcrumbComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -24,6 +29,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     NgxMaskDirective,
     FontAwesomeModule,
+    HttpClientModule,
   ],
   exports: [RouterModule],
 })

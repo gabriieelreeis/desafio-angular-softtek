@@ -51,7 +51,7 @@
     Não vi necessidade de consumir um JSON ou até mesmo uma API pois os dados são estaticos,
     mesmo informando um outro CPF iria exibir os mesmo resultados neste caso.
   -->
-    <ng-container *ngIf="showResult">
+    <ng-container *ngIf="showResult && !!selectedUser">
       <div id="result">
         <div class="card">
           <h1 class="card-title">Situação cadastral do CPF</h1>
@@ -62,16 +62,29 @@
             </div>
             <div class="infos">
               <p class="title">Nome</p>
-              <p class="value">Mariane de Sousa Oliveira</p>
+              <p class="value">
+                {{ selectedUser.name }} {{ selectedUser.last_name }}
+              </p>
             </div>
           </div>
           <div class="card-item">
-            <div class="icon green">
-              <fa-icon [icon]="faCheckCircle"></fa-icon>
+            <div
+              class="icon"
+              [ngClass]="selectedUser.status == 'regular' ? 'green' : 'gray'"
+            >
+              <fa-icon
+                [icon]="
+                  selectedUser.status == 'regular'
+                    ? faCheckCircle
+                    : faXmarkCircle
+                "
+              ></fa-icon>
             </div>
             <div class="infos">
               <p class="title">Situação do CPF</p>
-              <p class="value">Regular</p>
+              <p class="value">
+                {{ selectedUser.status == "regular" ? "Regular" : "Irregular" }}
+              </p>
             </div>
           </div>
         </div>
@@ -85,7 +98,7 @@
             </div>
             <div class="infos">
               <p class="title">Número da conta</p>
-              <p class="value">55798-8</p>
+              <p class="value">{{ selectedUser.application_account }}</p>
             </div>
           </div>
           <div class="card-item">
@@ -102,7 +115,7 @@
             </div>
             <div class="infos">
               <p class="title">Número da conta</p>
-              <p class="value">778461-8</p>
+              <p class="value">{{ selectedUser.checking_account }}</p>
             </div>
           </div>
           <div class="card-item">

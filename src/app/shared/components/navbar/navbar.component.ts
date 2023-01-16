@@ -14,9 +14,13 @@ import {
 })
 export class NavbarComponent implements OnInit {
   faBars = faBars;
+
   faSearch = faSearch;
+
   faStar = faStar;
+
   faComment = faComment;
+
   faBank = faBank;
 
   constructor() {}

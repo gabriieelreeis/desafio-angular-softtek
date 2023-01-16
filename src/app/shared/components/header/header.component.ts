@@ -9,6 +9,7 @@ import { faGear } from '@fortawesome/free-solid-svg-icons';
 })
 export class HeaderComponent implements OnInit {
   faBell = faBell;
+
   faGear = faGear;
 
   constructor() {}

@@ -1,16 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ValidateBrService } from 'ngx-validate-br';
-import { faUser, faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import {
+  faUser,
+  faCreditCard,
+  faXmarkCircle,
+} from '@fortawesome/free-solid-svg-icons';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import { AdmissionFooterButton } from '../components/admission-footer/admission-footer.dto';
+import { AdmissionCheckService } from './admission-check.service';
+import { Subscription } from 'rxjs';
+import User from 'src/app/shared/models/user';
 
 @Component({
   selector: 'app-admission-check',
   templateUrl: './admission-check.component.html',
   styleUrls: ['./admission-check.component.scss'],
 })
-export class AdmissionCheckComponent {
+export class AdmissionCheckComponent implements OnInit, OnDestroy {
   formGroup: FormGroup;
 
   defaultFormGroup: FormGroup = new FormGroup({
@@ -28,6 +35,8 @@ export class AdmissionCheckComponent {
 
   faCreditCard = faCreditCard;
 
+  faXmarkCircle = faXmarkCircle;
+
   showResult: boolean = false;
 
   defaultButton: AdmissionFooterButton = {
@@ -37,9 +46,22 @@ export class AdmissionCheckComponent {
 
   footerButtons: AdmissionFooterButton[] = [this.defaultButton];
 
-  constructor(private validateBrService: ValidateBrService) {
+  selectedUser?: User;
+
+  userSubscription: Subscription = new Subscription();
+
+  constructor(
+    private validateBrService: ValidateBrService,
+    private admissionCheckService: AdmissionCheckService
+  ) {
     // Crio o meu form group com a construção do component
     this.formGroup = this.defaultFormGroup;
+  }
+
+  ngOnInit(): void {}
+
+  ngOnDestroy(): void {
+    this.userSubscription.unsubscribe();
   }
 
   // Get no input de CPF
@@ -52,7 +74,7 @@ export class AdmissionCheckComponent {
 
     if (!this.formGroup.invalid) {
       //Simulando tempo de uma requisição
-      await new Promise((p) => setTimeout(p, 1000));
+      await this.getUser();
 
       //Desativa o botão e verifica se o resultado pode ser exibido
       this.buttonActivated = false;
@@ -78,5 +100,16 @@ export class AdmissionCheckComponent {
     this.formGroup = this.defaultFormGroup;
 
     this.footerButtons = [this.defaultButton];
+  }
+
+  async getUser(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.userSubscription = this.admissionCheckService
+        .getUser(this.cpf?.value)
+        .subscribe((u) => {
+          this.selectedUser = u;
+          resolve();
+        });
+    });
   }
 }
