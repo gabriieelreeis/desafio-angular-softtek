@@ -107,7 +107,15 @@ export class AdmissionCheckComponent implements OnInit, OnDestroy {
       this.userSubscription = this.admissionCheckService
         .getUser(this.cpf?.value)
         .subscribe((u) => {
-          this.selectedUser = u;
+          this.selectedUser = new User(
+            u.id,
+            u.name,
+            u.last_name,
+            u.status,
+            u.application_account,
+            u.checking_account,
+            u.cpf
+          );
           resolve();
         });
     });
