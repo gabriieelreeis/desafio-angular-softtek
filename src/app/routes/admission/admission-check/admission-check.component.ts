@@ -46,7 +46,7 @@ export class AdmissionCheckComponent implements OnInit, OnDestroy {
 
   footerButtons: AdmissionFooterButton[] = [this.defaultButton];
 
-  selectedUser?: User;
+  selectedUser: User | undefined;
 
   userSubscription: Subscription = new Subscription();
 
@@ -95,9 +95,12 @@ export class AdmissionCheckComponent implements OnInit, OnDestroy {
 
   reset(): void {
     this.buttonActivated = true;
+
     this.showResult = false;
 
-    this.formGroup = this.defaultFormGroup;
+    this.selectedUser = undefined;
+
+    this.cpf?.setValue('');
 
     this.footerButtons = [this.defaultButton];
   }
@@ -107,15 +110,18 @@ export class AdmissionCheckComponent implements OnInit, OnDestroy {
       this.userSubscription = this.admissionCheckService
         .getUser(this.cpf?.value)
         .subscribe((u) => {
-          this.selectedUser = new User(
-            u.id,
-            u.name,
-            u.last_name,
-            u.status,
-            u.application_account,
-            u.checking_account,
-            u.cpf
-          );
+          if (!!u) {
+            this.selectedUser = new User(
+              u.id,
+              u.name,
+              u.last_name,
+              u.status,
+              u.application_account,
+              u.checking_account,
+              u.cpf
+            );
+          }
+
           resolve();
         });
     });

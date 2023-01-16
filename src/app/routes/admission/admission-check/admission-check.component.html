@@ -124,6 +124,11 @@
         </div>
       </div>
     </ng-container>
+    <ng-container *ngIf="showResult && !selectedUser">
+      <div id="result">
+        <h1 class="not-found">Nenhum(a) cooperado(a) encontrado(a)</h1>
+      </div></ng-container
+    >
   </div>
 
   <app-admission-footer [buttons]="footerButtons"></app-admission-footer>
