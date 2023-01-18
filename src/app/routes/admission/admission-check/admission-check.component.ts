@@ -77,17 +77,20 @@ export class AdmissionCheckComponent implements OnInit, OnDestroy {
       await this.getUser();
 
       //Desativa o botão e verifica se o resultado pode ser exibido
-      this.buttonActivated = false;
+
       this.showResult = true;
 
-      this.footerButtons = [
-        {
-          title: 'Iniciar nova adminissão',
-          style: 'default',
-          action: () => this.reset(),
-        },
-        this.defaultButton,
-      ];
+      if (this.selectedUser) {
+        this.buttonActivated = false;
+        this.footerButtons = [
+          {
+            title: 'Iniciar nova adminissão',
+            style: 'default',
+            action: () => this.reset(),
+          },
+          this.defaultButton,
+        ];
+      }
     }
 
     this.loading = !this.loading;

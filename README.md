@@ -21,3 +21,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Valid CPF's
+
+These are the valid data for the tests
+`31176742094`, `92854577035`, `10690753616`
