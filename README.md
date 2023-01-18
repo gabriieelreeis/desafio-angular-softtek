@@ -24,5 +24,5 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Valid CPF's
 
-These are the valid data for the tests
+These are the valid data for testing
 `31176742094`, `92854577035`, `10690753616`
